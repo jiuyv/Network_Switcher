@@ -46,11 +46,7 @@ class NetworkSwitcherGUI:
         self._isp_map = {name: val for (name, val) in isp_choices}
         self._isp_rev_map = {val: name for (name, val) in isp_choices}
 
-        # 优先把 credentials.json 放在可执行文件同目录下（适用于 PyInstaller 打包后的 exe）
         if getattr(sys, 'frozen', False):
-            # 当通过 PyInstaller 打包（frozen）时，使用用户启动的 exe 路径作为基准，
-            # 这样可以把 credentials.json 保存在 exe 所在目录。
-            # 使用 sys.argv[0] 来获取被启动的 exe 路径（比 sys.executable 更稳健以指向原始 exe）。
             base_dir = Path(sys.argv[0]).resolve().parent
         else:
             base_dir = Path(__file__).parent
@@ -166,4 +162,5 @@ def GUI():
     root.mainloop()
 
 if __name__ == "__main__":
+
     GUI()
