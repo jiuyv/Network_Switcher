@@ -49,7 +49,7 @@ def login(username, password, way, pre_refresh=False):
     time.sleep(1)  
 
     reset_btn = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//input[@value='重置']"))  # 匹配“重置”文字
+        EC.element_to_be_clickable((By.XPATH, "//input[@value='重置']")) 
     )
     reset_btn.click()
 
@@ -95,4 +95,5 @@ if __name__ == "__main__":
     logout()
     username = 'xxxxxxxxxx'
     password = 'xxxxxx'
+
     login(username, password, way=1)
